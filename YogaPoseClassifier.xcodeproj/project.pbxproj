@@ -99,13 +99,8 @@
 		DA06E6B027C109D30085410E /* YogaPoseClassifier */ = {
 			isa = PBXGroup;
 			children = (
-				DA06E6B127C109D30085410E /* AppDelegate.swift */,
-				DA06E6B327C109D30085410E /* SceneDelegate.swift */,
+				DA06E6E227C10B2B0085410E /* App */,
 				DA06E6B527C109D30085410E /* ViewController.swift */,
-				DA06E6B727C109D30085410E /* Main.storyboard */,
-				DA06E6BA27C109D70085410E /* Assets.xcassets */,
-				DA06E6BC27C109D70085410E /* LaunchScreen.storyboard */,
-				DA06E6BF27C109D70085410E /* Info.plist */,
 			);
 			path = YogaPoseClassifier;
 			sourceTree = "<group>";
@@ -125,6 +120,19 @@
 				DA06E6D427C109D80085410E /* YogaPoseClassifierUITestsLaunchTests.swift */,
 			);
 			path = YogaPoseClassifierUITests;
+			sourceTree = "<group>";
+		};
+		DA06E6E227C10B2B0085410E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				DA06E6B127C109D30085410E /* AppDelegate.swift */,
+				DA06E6B327C109D30085410E /* SceneDelegate.swift */,
+				DA06E6BC27C109D70085410E /* LaunchScreen.storyboard */,
+				DA06E6B727C109D30085410E /* Main.storyboard */,
+				DA06E6BA27C109D70085410E /* Assets.xcassets */,
+				DA06E6BF27C109D70085410E /* Info.plist */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -441,7 +449,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = C3TKTY8GP6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = YogaPoseClassifier/Info.plist;
+				INFOPLIST_FILE = YogaPoseClassifier/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -469,7 +477,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = C3TKTY8GP6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = YogaPoseClassifier/Info.plist;
+				INFOPLIST_FILE = YogaPoseClassifier/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
