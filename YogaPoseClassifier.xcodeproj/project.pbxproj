@@ -16,6 +16,21 @@
 		DA06E6C927C109D80085410E /* YogaPoseClassifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA06E6C827C109D80085410E /* YogaPoseClassifierTests.swift */; };
 		DA06E6D327C109D80085410E /* YogaPoseClassifierUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA06E6D227C109D80085410E /* YogaPoseClassifierUITests.swift */; };
 		DA06E6D527C109D80085410E /* YogaPoseClassifierUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA06E6D427C109D80085410E /* YogaPoseClassifierUITestsLaunchTests.swift */; };
+		DA06E6EA27C10C580085410E /* Joint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA06E6E427C10C580085410E /* Joint.swift */; };
+		DA06E6EB27C10C580085410E /* PoseBuilder+Multiple.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA06E6E527C10C580085410E /* PoseBuilder+Multiple.swift */; };
+		DA06E6EC27C10C580085410E /* PoseBuilder+Single.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA06E6E627C10C580085410E /* PoseBuilder+Single.swift */; };
+		DA06E6ED27C10C580085410E /* Pose.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA06E6E727C10C580085410E /* Pose.swift */; };
+		DA06E6EE27C10C580085410E /* PoseBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA06E6E827C10C580085410E /* PoseBuilder.swift */; };
+		DA06E6EF27C10C580085410E /* PoseBuilderConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA06E6E927C10C580085410E /* PoseBuilderConfiguration.swift */; };
+		DA06E6F527C10C610085410E /* PoseNetOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA06E6F127C10C610085410E /* PoseNetOutput.swift */; };
+		DA06E6F627C10C610085410E /* PoseNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA06E6F227C10C610085410E /* PoseNet.swift */; };
+		DA06E6F727C10C610085410E /* PoseNetInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA06E6F327C10C610085410E /* PoseNetInput.swift */; };
+		DA06E6F827C10C610085410E /* PoseNetMobileNet075S16FP16.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = DA06E6F427C10C610085410E /* PoseNetMobileNet075S16FP16.mlmodel */; };
+		DA06E6FC27C10CEE0085410E /* CGPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA06E6FA27C10CEE0085410E /* CGPoint+Extension.swift */; };
+		DA06E6FD27C10CEE0085410E /* CGImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA06E6FB27C10CEE0085410E /* CGImage+Extension.swift */; };
+		DA06E70027C10D7C0085410E /* PoseImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA06E6FF27C10D7B0085410E /* PoseImageView.swift */; };
+		DA06E70427C10E8E0085410E /* AVCaptureVideoOrientation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA06E70227C10E8E0085410E /* AVCaptureVideoOrientation+Extension.swift */; };
+		DA06E70527C10E8E0085410E /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA06E70327C10E8E0085410E /* VideoCapture.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +64,21 @@
 		DA06E6CE27C109D80085410E /* YogaPoseClassifierUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YogaPoseClassifierUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA06E6D227C109D80085410E /* YogaPoseClassifierUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YogaPoseClassifierUITests.swift; sourceTree = "<group>"; };
 		DA06E6D427C109D80085410E /* YogaPoseClassifierUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YogaPoseClassifierUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DA06E6E427C10C580085410E /* Joint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Joint.swift; sourceTree = "<group>"; };
+		DA06E6E527C10C580085410E /* PoseBuilder+Multiple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PoseBuilder+Multiple.swift"; sourceTree = "<group>"; };
+		DA06E6E627C10C580085410E /* PoseBuilder+Single.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PoseBuilder+Single.swift"; sourceTree = "<group>"; };
+		DA06E6E727C10C580085410E /* Pose.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pose.swift; sourceTree = "<group>"; };
+		DA06E6E827C10C580085410E /* PoseBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoseBuilder.swift; sourceTree = "<group>"; };
+		DA06E6E927C10C580085410E /* PoseBuilderConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoseBuilderConfiguration.swift; sourceTree = "<group>"; };
+		DA06E6F127C10C610085410E /* PoseNetOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoseNetOutput.swift; sourceTree = "<group>"; };
+		DA06E6F227C10C610085410E /* PoseNet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoseNet.swift; sourceTree = "<group>"; };
+		DA06E6F327C10C610085410E /* PoseNetInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoseNetInput.swift; sourceTree = "<group>"; };
+		DA06E6F427C10C610085410E /* PoseNetMobileNet075S16FP16.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = PoseNetMobileNet075S16FP16.mlmodel; sourceTree = "<group>"; };
+		DA06E6FA27C10CEE0085410E /* CGPoint+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extension.swift"; sourceTree = "<group>"; };
+		DA06E6FB27C10CEE0085410E /* CGImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGImage+Extension.swift"; sourceTree = "<group>"; };
+		DA06E6FF27C10D7B0085410E /* PoseImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoseImageView.swift; sourceTree = "<group>"; };
+		DA06E70227C10E8E0085410E /* AVCaptureVideoOrientation+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVCaptureVideoOrientation+Extension.swift"; sourceTree = "<group>"; };
+		DA06E70327C10E8E0085410E /* VideoCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +129,12 @@
 		DA06E6B027C109D30085410E /* YogaPoseClassifier */ = {
 			isa = PBXGroup;
 			children = (
+				DA06E6E327C10C580085410E /* Pose */,
+				DA06E6F027C10C610085410E /* Model */,
+				DA06E6F927C10CEE0085410E /* Extensions+Types */,
+				DA06E70127C10E8E0085410E /* Utils */,
+				DA06E6FE27C10D710085410E /* UI */,
 				DA06E6E227C10B2B0085410E /* App */,
-				DA06E6B527C109D30085410E /* ViewController.swift */,
 			);
 			path = YogaPoseClassifier;
 			sourceTree = "<group>";
@@ -133,6 +167,57 @@
 				DA06E6BF27C109D70085410E /* Info.plist */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		DA06E6E327C10C580085410E /* Pose */ = {
+			isa = PBXGroup;
+			children = (
+				DA06E6E427C10C580085410E /* Joint.swift */,
+				DA06E6E527C10C580085410E /* PoseBuilder+Multiple.swift */,
+				DA06E6E627C10C580085410E /* PoseBuilder+Single.swift */,
+				DA06E6E727C10C580085410E /* Pose.swift */,
+				DA06E6E827C10C580085410E /* PoseBuilder.swift */,
+				DA06E6E927C10C580085410E /* PoseBuilderConfiguration.swift */,
+			);
+			path = Pose;
+			sourceTree = "<group>";
+		};
+		DA06E6F027C10C610085410E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DA06E6F127C10C610085410E /* PoseNetOutput.swift */,
+				DA06E6F227C10C610085410E /* PoseNet.swift */,
+				DA06E6F327C10C610085410E /* PoseNetInput.swift */,
+				DA06E6F427C10C610085410E /* PoseNetMobileNet075S16FP16.mlmodel */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DA06E6F927C10CEE0085410E /* Extensions+Types */ = {
+			isa = PBXGroup;
+			children = (
+				DA06E6FA27C10CEE0085410E /* CGPoint+Extension.swift */,
+				DA06E6FB27C10CEE0085410E /* CGImage+Extension.swift */,
+			);
+			path = "Extensions+Types";
+			sourceTree = "<group>";
+		};
+		DA06E6FE27C10D710085410E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				DA06E6B527C109D30085410E /* ViewController.swift */,
+				DA06E6FF27C10D7B0085410E /* PoseImageView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		DA06E70127C10E8E0085410E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				DA06E70227C10E8E0085410E /* AVCaptureVideoOrientation+Extension.swift */,
+				DA06E70327C10E8E0085410E /* VideoCapture.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,9 +351,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA06E6F827C10C610085410E /* PoseNetMobileNet075S16FP16.mlmodel in Sources */,
+				DA06E6EC27C10C580085410E /* PoseBuilder+Single.swift in Sources */,
+				DA06E6ED27C10C580085410E /* Pose.swift in Sources */,
+				DA06E70027C10D7C0085410E /* PoseImageView.swift in Sources */,
+				DA06E70527C10E8E0085410E /* VideoCapture.swift in Sources */,
+				DA06E6EE27C10C580085410E /* PoseBuilder.swift in Sources */,
+				DA06E6FC27C10CEE0085410E /* CGPoint+Extension.swift in Sources */,
+				DA06E6F727C10C610085410E /* PoseNetInput.swift in Sources */,
+				DA06E6F527C10C610085410E /* PoseNetOutput.swift in Sources */,
 				DA06E6B627C109D30085410E /* ViewController.swift in Sources */,
 				DA06E6B227C109D30085410E /* AppDelegate.swift in Sources */,
+				DA06E6F627C10C610085410E /* PoseNet.swift in Sources */,
+				DA06E6EB27C10C580085410E /* PoseBuilder+Multiple.swift in Sources */,
+				DA06E6EF27C10C580085410E /* PoseBuilderConfiguration.swift in Sources */,
+				DA06E6EA27C10C580085410E /* Joint.swift in Sources */,
 				DA06E6B427C109D30085410E /* SceneDelegate.swift in Sources */,
+				DA06E70427C10E8E0085410E /* AVCaptureVideoOrientation+Extension.swift in Sources */,
+				DA06E6FD27C10CEE0085410E /* CGImage+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,9 +550,11 @@
 				DEVELOPMENT_TEAM = C3TKTY8GP6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YogaPoseClassifier/App/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses the camera to capture input for the PoseNet model";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -478,9 +580,11 @@
 				DEVELOPMENT_TEAM = C3TKTY8GP6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YogaPoseClassifier/App/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses the camera to capture input for the PoseNet model";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
