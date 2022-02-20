@@ -40,7 +40,8 @@ class PoseNet {
     private let poseNetMLModel: MLModel
 
     init() throws {
-        poseNetMLModel = try PoseNetMobileNet075S16FP16(configuration: .init()).model
+//        poseNetMLModel = try PoseNetMobileNet075S16FP16(configuration: .init()).model
+        poseNetMLModel = try PoseNetMobileNet100S16FP16(configuration: .init()).model
     }
 
     /// Calls the `prediction` method of the PoseNet model and returns the outputs to the assigned
