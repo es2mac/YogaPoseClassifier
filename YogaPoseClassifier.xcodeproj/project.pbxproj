@@ -31,6 +31,7 @@
 		DA06E70027C10D7C0085410E /* PoseImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA06E6FF27C10D7B0085410E /* PoseImageView.swift */; };
 		DA06E70427C10E8E0085410E /* AVCaptureVideoOrientation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA06E70227C10E8E0085410E /* AVCaptureVideoOrientation+Extension.swift */; };
 		DA06E70527C10E8E0085410E /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA06E70327C10E8E0085410E /* VideoCapture.swift */; };
+		DADE0A6E27C2F0C300754D8F /* ClassificationResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADE0A6D27C2F0C300754D8F /* ClassificationResultView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		DA06E6FF27C10D7B0085410E /* PoseImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoseImageView.swift; sourceTree = "<group>"; };
 		DA06E70227C10E8E0085410E /* AVCaptureVideoOrientation+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVCaptureVideoOrientation+Extension.swift"; sourceTree = "<group>"; };
 		DA06E70327C10E8E0085410E /* VideoCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
+		DADE0A6D27C2F0C300754D8F /* ClassificationResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassificationResultView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 			children = (
 				DA06E6B527C109D30085410E /* ViewController.swift */,
 				DA06E6FF27C10D7B0085410E /* PoseImageView.swift */,
+				DADE0A6D27C2F0C300754D8F /* ClassificationResultView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				DA06E6B427C109D30085410E /* SceneDelegate.swift in Sources */,
 				DA06E70427C10E8E0085410E /* AVCaptureVideoOrientation+Extension.swift in Sources */,
 				DA06E6FD27C10CEE0085410E /* CGImage+Extension.swift in Sources */,
+				DADE0A6E27C2F0C300754D8F /* ClassificationResultView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     /// The view the controller uses to visualize the detected poses.
-    @IBOutlet private var previewImageView: PoseImageView!
+    private var resultView: ClassificationResultView!
 
     private let videoCapture = VideoCapture()
 
@@ -54,10 +54,15 @@ class ViewController: UIViewController {
 
 private extension ViewController {
     func setupViews() {
-        previewImageView = PoseImageView(frame: .init(x: 0, y: 0, width: 300, height: 300))
-        previewImageView.contentMode = .scaleAspectFill
-        previewImageView.clipsToBounds = true
-        view.addSubview(previewImageView)
+        resultView = ClassificationResultView(frame: view.bounds)
+        view.addSubview(resultView)
+        resultView.translatesAutoresizingMaskIntoConstraints = false
+        view.topAnchor.constraint(equalTo: resultView.topAnchor).isActive = true
+        view.bottomAnchor.constraint(equalTo: resultView.bottomAnchor).isActive = true
+        view.leadingAnchor.constraint(equalTo: resultView.leadingAnchor).isActive = true
+        view.trailingAnchor.constraint(equalTo: resultView.trailingAnchor).isActive = true
+
+        resultView.configure()
     }
 
     func setupAndBeginCapturingVideoFrames() {
@@ -108,7 +113,9 @@ extension ViewController: PoseNetDelegate {
                                       configuration: poseBuilderConfiguration,
                                       inputImage: currentFrame)
 
-        previewImageView.show(poses: [poseBuilder.pose], on: currentFrame)
+        let pose = poseBuilder.pose
+        resultView.show(pose: pose, on: currentFrame)
+
     }
 }
 
