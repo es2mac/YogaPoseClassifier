@@ -28,7 +28,7 @@ class ClassificationResultView: UIView {
         configureSubviews()
     }
 
-    func show(pose: Pose, on frame: CGImage) {
+    func show(pose: Pose, on frame: CGImage, classificationResult: [PoseType: Double]) {
         previewImageView.show(poses: [pose], on: frame)
     }
 }

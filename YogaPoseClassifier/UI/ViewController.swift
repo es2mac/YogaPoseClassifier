@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     private var currentFrame: CGImage?
 
     /// The set of parameters passed to the pose builder when detecting poses.
-    private let poseBuilderConfiguration = PoseBuilderConfiguration()
+    private let poseBuilderConfiguration = PoseBuilderConfiguration(jointConfidenceThreshold: 0.8, poseConfidenceThreshold: 0.3, matchingJointDistance: 40, localSearchRadius: 3, maxPoseCount: 1, adjacentJointOffsetRefinementSteps: 3)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -114,8 +114,9 @@ extension ViewController: PoseNetDelegate {
                                       inputImage: currentFrame)
 
         let pose = poseBuilder.pose
-        resultView.show(pose: pose, on: currentFrame)
 
+        let result = PoseClassifier.classify(pose: pose)
+        resultView.show(pose: pose, on: currentFrame, classificationResult: result)
     }
 }
 
