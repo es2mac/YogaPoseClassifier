@@ -2,23 +2,19 @@
 
 ## Todo
 
-- Basic UI
-- Simple rule-based classification
-- Integrate & run
-- Document approach
-- If still has time, look for possible improvements
+- Document approach in Google Docs
 
 
 ## High-level approach
 
-Bottom-up approach: Two steps, first get keypoints, then classify.
+Bottom-up approach: Two steps, (1) get keypoints, (2) classify.
 
 Looked around and this seems pretty canonical (keypoints is kind of a well-solved problem).  Training a model to do straight from image to classification is obviously not feasible for me.
 
 
 ## Pose keypoints solutions
 
-- PoseNet, Vision, MoveNet etc.
+- PoseNet, Apple Vision, MoveNet etc.
 
 - PoseNet
     - Simple to get started because of Apple's demo
@@ -31,7 +27,7 @@ Looked around and this seems pretty canonical (keypoints is kind of a well-solve
 - MoveNet
     - Seen reports of difficulty converting to CoreML
     - Otherwise needs to add TensorFlow Lite dependency
-    - Claims to outperform PoseNet.  Which it does seem to be, quite significantly, based on the [web demo](https://github.com/tensorflow/tfjs-models/tree/master/pose-detection)
+    - Claims to outperform PoseNet.  Subjectively speaking it does seem to be, quite significantly, based on the [web demo](https://github.com/tensorflow/tfjs-models/tree/master/pose-detection)
 
 
 ## Classification solutions
@@ -43,21 +39,21 @@ Looked around and this seems pretty canonical (keypoints is kind of a well-solve
 
 - For an initial prototype, try simple hand-crafted rules, leave ML approach for later if time permits
 
-- Idea to start: Distance to 3 points, like k-NN with k=1.  Could shift by one of the keypoints, and use cosine similarity to account for scaling
+- Idea to start: Distance to 3 points, like k-NN with k=1.  Could shift by one of the keypoints, and use cosine similarity to account for scaling-invariance
 
 
-## Considerations
+## Challenges
 
-- The joints results are pretty noisy
-    - Apple demo's default confidence values are set on the high side
+- The joints results are very noisy
+    - Apple demo's default confidence values for PoseNet are set on the high side, can lower to count more points as recognized
+    - My hand-crafted classification rules are greatly affected by the noise, and I'd expect a proper ML model to do much better (essentially learning the quirks of the PoseNet keypoints, and learning from negative samples)
+    - Better keypoints e.g. MoveNet should help too
 
 - PoseNet's confidence drops significantly for the triangle pose.
     - Other than switching to another model, obvious way to improve is by using the higher accuracy version of PoseNet.
-        - Using 1.00 multiplier does noticeably help, did not test stride 8 vs. 16 (theoretically is 8 more accurate?)
+        - 1 file & 1 line change
+        - Using 1.00 multiplier does noticeably help, stride 8 vs. 16 noticeably different in running speed but not accuracy
     - MoveNet seems to do much better with this pose (testing on web demo), and more stable overall
-
-- Demo app
-    - Showing result in a reasonable way: throttled response?
 
 
 ## Other notes
@@ -66,13 +62,11 @@ Looked around and this seems pretty canonical (keypoints is kind of a well-solve
     - "Pose" often refers to just recognizing where the body parts / keypoints are, detecting human figure, often more specifically the collection of keypoints
     - What the pose "is" is commonly referred to as "activity" or "action" recognition / categorization.
 
-- 2D or 3D?  3D might be more accurate, but 2D is probably easier to process; I think these are both 2D
-
 - If doing proper classification, want a background class
 
-- Can find region of interest to improve result
+- Another way to improve the result is to find region of interest first
 
-- Yoga pose names
+- Yoga pose names:
     - tree
     - warrior
     - triangle
@@ -88,6 +82,8 @@ Looked around and this seems pretty canonical (keypoints is kind of a well-solve
 
 - [MoveNet with TensorFlow Lite](https://github.com/tensorflow/examples/tree/master/lite/examples/pose_estimation/ios)
     - [Blog post](https://blog.tensorflow.org/2021/08/pose-estimation-and-classification-on-edge-devices-with-MoveNet-and-TensorFlow-Lite.html) also describes pose classification
+
+- [Yoga-82 Dataset](https://sites.google.com/view/yoga-82/home)
 
 - WWDC related sessions
     - [Detect Body and Hand Pose with Vision](https://developer.apple.com/videos/play/wwdc2020/10653/)
@@ -116,6 +112,14 @@ Looked around and this seems pretty canonical (keypoints is kind of a well-solve
     - Started new app project and migrate/borrow/steal code from PoseNet demo
     - Explored PoseNet's Pose output
 
+- 2/20
+    - Implement UI
+    - Implement rule-based classification (cosine similarity)
+    - Testing, tuning
 
+- 2/21
+    - Last tweaks and testing
+    - Clean up some notes and code
+    - Write in Google Doc
 
 
