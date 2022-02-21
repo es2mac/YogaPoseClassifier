@@ -70,10 +70,19 @@ private extension ClassificationResultView {
     }
 
     func updateImageViews(result: PoseClassifier.Result) {
-        UIView.animate(withDuration: 0.2) { [treeImageView, triangleImageView, warriorImageView] in
-            treeImageView.alpha = max(0.25, min(1, result.treeValue * 2))
-            triangleImageView.alpha = max(0.25, min(1, result.triangleValue * 2))
-            warriorImageView.alpha = max(0.25, min(1, result.warriorValue * 2))
+        // Highlight the one with highest value by making it appear, using opacity to represent value
+        // If all the values are small then keep them all faded
+        let maxValue: Double = {
+            let maxValue = [result.treeValue, result.triangleValue, result.warriorValue].max()!
+            return maxValue >= 0.25 ? maxValue : 1
+        }()
+        let minAlphaValue = 0.25
+        let maxAlphaValue = min(1, maxValue * 2.5)
+
+        UIView.animate(withDuration: 0.5) { [treeImageView, triangleImageView, warriorImageView] in
+            treeImageView.alpha = (result.treeValue < maxValue) ? minAlphaValue : maxAlphaValue
+            triangleImageView.alpha = (result.triangleValue < maxValue) ? minAlphaValue : maxAlphaValue
+            warriorImageView.alpha = (result.warriorValue < maxValue) ? minAlphaValue : maxAlphaValue
         }
     }
 
