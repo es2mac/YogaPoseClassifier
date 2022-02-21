@@ -31,6 +31,9 @@
 		DA06E70027C10D7C0085410E /* PoseImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA06E6FF27C10D7B0085410E /* PoseImageView.swift */; };
 		DA06E70427C10E8E0085410E /* AVCaptureVideoOrientation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA06E70227C10E8E0085410E /* AVCaptureVideoOrientation+Extension.swift */; };
 		DA06E70527C10E8E0085410E /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA06E70327C10E8E0085410E /* VideoCapture.swift */; };
+		DADE0A6E27C2F0C300754D8F /* ClassificationResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADE0A6D27C2F0C300754D8F /* ClassificationResultView.swift */; };
+		DADE0A7027C30A2E00754D8F /* PoseNetMobileNet100S16FP16.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = DADE0A6F27C30A2E00754D8F /* PoseNetMobileNet100S16FP16.mlmodel */; };
+		DADE0A7227C30B2A00754D8F /* PoseClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADE0A7127C30B2A00754D8F /* PoseClassifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +82,9 @@
 		DA06E6FF27C10D7B0085410E /* PoseImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoseImageView.swift; sourceTree = "<group>"; };
 		DA06E70227C10E8E0085410E /* AVCaptureVideoOrientation+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVCaptureVideoOrientation+Extension.swift"; sourceTree = "<group>"; };
 		DA06E70327C10E8E0085410E /* VideoCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
+		DADE0A6D27C2F0C300754D8F /* ClassificationResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassificationResultView.swift; sourceTree = "<group>"; };
+		DADE0A6F27C30A2E00754D8F /* PoseNetMobileNet100S16FP16.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = PoseNetMobileNet100S16FP16.mlmodel; sourceTree = "<group>"; };
+		DADE0A7127C30B2A00754D8F /* PoseClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseClassifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +184,7 @@
 				DA06E6E727C10C580085410E /* Pose.swift */,
 				DA06E6E827C10C580085410E /* PoseBuilder.swift */,
 				DA06E6E927C10C580085410E /* PoseBuilderConfiguration.swift */,
+				DADE0A7127C30B2A00754D8F /* PoseClassifier.swift */,
 			);
 			path = Pose;
 			sourceTree = "<group>";
@@ -189,6 +196,7 @@
 				DA06E6F227C10C610085410E /* PoseNet.swift */,
 				DA06E6F327C10C610085410E /* PoseNetInput.swift */,
 				DA06E6F427C10C610085410E /* PoseNetMobileNet075S16FP16.mlmodel */,
+				DADE0A6F27C30A2E00754D8F /* PoseNetMobileNet100S16FP16.mlmodel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -207,6 +215,7 @@
 			children = (
 				DA06E6B527C109D30085410E /* ViewController.swift */,
 				DA06E6FF27C10D7B0085410E /* PoseImageView.swift */,
+				DADE0A6D27C2F0C300754D8F /* ClassificationResultView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -364,11 +373,14 @@
 				DA06E6B227C109D30085410E /* AppDelegate.swift in Sources */,
 				DA06E6F627C10C610085410E /* PoseNet.swift in Sources */,
 				DA06E6EB27C10C580085410E /* PoseBuilder+Multiple.swift in Sources */,
+				DADE0A7227C30B2A00754D8F /* PoseClassifier.swift in Sources */,
 				DA06E6EF27C10C580085410E /* PoseBuilderConfiguration.swift in Sources */,
 				DA06E6EA27C10C580085410E /* Joint.swift in Sources */,
 				DA06E6B427C109D30085410E /* SceneDelegate.swift in Sources */,
 				DA06E70427C10E8E0085410E /* AVCaptureVideoOrientation+Extension.swift in Sources */,
 				DA06E6FD27C10CEE0085410E /* CGImage+Extension.swift in Sources */,
+				DADE0A6E27C2F0C300754D8F /* ClassificationResultView.swift in Sources */,
+				DADE0A7027C30A2E00754D8F /* PoseNetMobileNet100S16FP16.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

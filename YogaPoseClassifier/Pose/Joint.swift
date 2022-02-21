@@ -65,3 +65,9 @@ class Joint {
         self.isValid = isValid
     }
 }
+
+extension Joint: CustomDebugStringConvertible {
+    var debugDescription: String {
+        "\(name)\(isValid ? "" : " [invalid]") \(position)"
+    }
+}

@@ -26,9 +26,19 @@ extension CGPoint {
         return Double(squaredDistance(to: other).squareRoot())
     }
 
+    func midpoint(to other: CGPoint) -> CGPoint {
+        CGPoint(x: (x + other.x) / 2,
+                y: (y + other.y) / 2)
+    }
+
     /// Calculates and returns the result of an element-wise addition.
     static func + (_ lhs: CGPoint, _ rhs: CGVector) -> CGPoint {
         return CGPoint(x: lhs.x + rhs.dx, y: lhs.y + rhs.dy)
+    }
+
+    /// Calculates and returns the result of an element-wise subtraction.
+    static func - (_ lhs: CGPoint, _ rhs: CGPoint) -> CGPoint {
+        return CGPoint(x: lhs.x - rhs.x, y: lhs.y - rhs.y)
     }
 
     /// Performs element-wise addition.

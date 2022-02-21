@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     /// The view the controller uses to visualize the detected poses.
-    @IBOutlet private var previewImageView: PoseImageView!
+    private var resultView: ClassificationResultView!
 
     private let videoCapture = VideoCapture()
 
@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     private var currentFrame: CGImage?
 
     /// The set of parameters passed to the pose builder when detecting poses.
-    private let poseBuilderConfiguration = PoseBuilderConfiguration()
+    private let poseBuilderConfiguration = PoseBuilderConfiguration(jointConfidenceThreshold: 0.4, poseConfidenceThreshold: 0.3, matchingJointDistance: 40, localSearchRadius: 3, maxPoseCount: 1, adjacentJointOffsetRefinementSteps: 3)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,10 +54,15 @@ class ViewController: UIViewController {
 
 private extension ViewController {
     func setupViews() {
-        previewImageView = PoseImageView(frame: .init(x: 0, y: 0, width: 300, height: 300))
-        previewImageView.contentMode = .scaleAspectFill
-        previewImageView.clipsToBounds = true
-        view.addSubview(previewImageView)
+        resultView = ClassificationResultView(frame: view.bounds)
+        view.addSubview(resultView)
+        resultView.translatesAutoresizingMaskIntoConstraints = false
+        view.topAnchor.constraint(equalTo: resultView.topAnchor).isActive = true
+        view.bottomAnchor.constraint(equalTo: resultView.bottomAnchor).isActive = true
+        view.leadingAnchor.constraint(equalTo: resultView.leadingAnchor).isActive = true
+        view.trailingAnchor.constraint(equalTo: resultView.trailingAnchor).isActive = true
+
+        resultView.configure()
     }
 
     func setupAndBeginCapturingVideoFrames() {
@@ -108,7 +113,10 @@ extension ViewController: PoseNetDelegate {
                                       configuration: poseBuilderConfiguration,
                                       inputImage: currentFrame)
 
-        previewImageView.show(poses: [poseBuilder.pose], on: currentFrame)
+        let pose = poseBuilder.pose
+
+        let result = PoseClassifier.classify(pose: pose)
+        resultView.show(pose: pose, on: currentFrame, classificationResult: result)
     }
 }
 
