@@ -7,32 +7,51 @@
 
 import Foundation
 import CoreGraphics
+import CoreMedia
 
 enum PoseType {
     case tree, triangle, warrior
 }
 
 struct PoseClassifier {
-    static func classify(pose: Pose) -> [PoseType: Double] {
+    struct Result {
+        let treeValue: Double
+        let triangleValue: Double
+        let warriorValue: Double
+    }
+
+    static func classify(pose: Pose) -> Result {
         guard pose[.leftHip].isValid,
               pose[.rightHip].isValid,
               validJointCount(pose: pose) >= 8 else {
-            return [.tree: 0, .triangle: 0, .warrior: 0]
-        }
+                  return Result(treeValue: 0, triangleValue: 0, warriorValue: 0)
+              }
 
-
-        let centeredPose = pose.centeredToHip()
-        let mirroredPose = centeredPose.mirrored()
-
-        return [.tree: max(centeredPose.similarity(to: treePose),
-                           mirroredPose.similarity(to: treePose)),
-                .triangle: max(centeredPose.similarity(to: trianglePose),
-                           mirroredPose.similarity(to: trianglePose)),
-                .warrior: max(centeredPose.similarity(to: warriorPose),
-                           mirroredPose.similarity(to: warriorPose))]
+        return Result(treeValue: computeConfidence(pose: pose,
+                                                   referencePose: treePose,
+                                                   floorValue: 0.86),
+                      triangleValue: computeConfidence(pose: pose,
+                                                       referencePose: trianglePose,
+                                                       floorValue: 0.48),
+                      warriorValue: computeConfidence(pose: pose,
+                                                      referencePose: warriorPose,
+                                                      floorValue: 0.77))
     }
 }
 
+private func computeConfidence(pose: Pose, referencePose: Pose, floorValue: Double) -> Double {
+    let centeredPose = pose.centeredToHip()
+    let mirroredPose = centeredPose.mirrored()
+    let rawValue = max(centeredPose.similarity(to: referencePose),
+                       mirroredPose.similarity(to: referencePose))
+
+    return raisedFloor(floorValue, value: rawValue)
+}
+
+/// Transforming a value from (floor, 1) to (0, 1)
+private func raisedFloor(_ floor: Double, value: Double) -> Double {
+    max(0, value - floor) / (1 - floor)
+}
 
 private let interestedJointNames: [Joint.Name] = [
     .nose,
