@@ -23,7 +23,7 @@ struct PoseClassifier {
     static func classify(pose: Pose) -> Result {
         guard pose[.leftHip].isValid,
               pose[.rightHip].isValid,
-              validJointCount(pose: pose) >= 8 else {
+              pose.validJointCount() >= 8 else {
                   return Result(treeValue: 0, triangleValue: 0, warriorValue: 0)
               }
 
@@ -53,28 +53,28 @@ private func raisedFloor(_ floor: Double, value: Double) -> Double {
     max(0, value - floor) / (1 - floor)
 }
 
-private let interestedJointNames: [Joint.Name] = [
-    .nose,
-    .leftShoulder, .rightShoulder,
-    .leftElbow, .rightElbow,
-    .leftWrist, .rightWrist,
-    .leftHip, .rightHip,
-    .leftKnee, .rightKnee,
-    .leftAnkle, .rightAnkle
-]
-
-private func validJointCount(pose: Pose) -> Int {
-    interestedJointNames.compactMap { pose.joints[$0] }
-    .filter(\.isValid)
-    .count
-}
-
 private extension Pose {
+    static let interestedJointNames: [Joint.Name] = [
+        .nose,
+        .leftShoulder, .rightShoulder,
+        .leftElbow, .rightElbow,
+        .leftWrist, .rightWrist,
+        .leftHip, .rightHip,
+        .leftKnee, .rightKnee,
+        .leftAnkle, .rightAnkle
+    ]
+
+    func validJointCount() -> Int {
+        Pose.interestedJointNames.compactMap { joints[$0] }
+        .filter(\.isValid)
+        .count
+    }
+
     func centeredToHip() -> Pose {
         let hipCenter: CGPoint = self[.leftHip].position.midpoint(to: self[.rightHip].position)
 
         var newPose = self
-        for jointName in interestedJointNames {
+        for jointName in Pose.interestedJointNames {
             newPose[jointName] = self[jointName].shifted(center: hipCenter)
         }
 
@@ -84,17 +84,19 @@ private extension Pose {
     func mirrored() -> Pose {
         var newPose = self
         
-        for jointName in interestedJointNames {
+        for jointName in Pose.interestedJointNames {
             let joint = self[jointName].mirrored()
             newPose[joint.name] = joint
         }
         return newPose
     }
 
+    /// Take the coordinates of the joints we're interested in the the poses
+    /// and compute their cosine similarity
     func similarity(to otherPose: Pose) -> Double {
         var thisVector: [Double] = []
         var otherVector: [Double] = []
-        for jointName in interestedJointNames {
+        for jointName in Pose.interestedJointNames {
             let thisJoint = self[jointName]
             if !thisJoint.isValid {
                 continue
@@ -137,20 +139,23 @@ private extension Joint {
     ]
 
     func shifted(center: CGPoint) -> Joint {
-        Joint(name: Joint.mirroredNames[name]!, cell: cell, position: position - center, confidence: confidence, isValid: isValid)
+        Joint(name: Joint.mirroredNames[name]!,
+              cell: cell,
+              position: position - center,
+              confidence: confidence,
+              isValid: isValid)
     }
 
     func mirrored() -> Joint {
-        Joint(name: name, cell: cell, position: .init(x: -position.x, y: position.y), confidence: confidence, isValid: isValid)
+        Joint(name: name,
+              cell: cell,
+              position: .init(x: -position.x, y: position.y),
+              confidence: confidence,
+              isValid: isValid)
     }
 }
 
-private func printPose(_ pose: Pose) {
-    for (_, joint) in pose.joints {
-        print(joint)
-    }
-    print()
-}
+// MARK: - Reference "perfect poses"
 
 private let treePose: Pose = {
     var pose = Pose()
